@@ -51,12 +51,17 @@ export default function Home() {
             ref={navRef}
             className="hidden md:flex items-center gap-8 font-medium"
           >
-            <li className="hover:text-gray-600 cursor-pointer">Home</li>
+            <li
+              onClick={() => navigate("/")}
+              className="hover:text-gray-600 cursor-pointer"
+            >
+              Home
+            </li>
 
             {/* Dropdowns */}
             {[
               {
-                id: "serums",
+                id: "shop-serums",
                 label: "ShopSerums",
                 items: [
                   "Vitamin C Serum",
@@ -72,7 +77,7 @@ export default function Home() {
                 ],
               },
               {
-                id: "concerns",
+                id: "skin-concerns",
                 label: "SkinConcerns",
                 items: [
                   "For Glowing Skin",
@@ -88,7 +93,7 @@ export default function Home() {
                 ],
               },
               {
-                id: "guides",
+                id: "serum-guides",
                 label: "SerumGuides",
                 items: [
                   "How to Apply Serum",
@@ -103,7 +108,7 @@ export default function Home() {
                 ],
               },
               {
-                id: "blogs",
+                id: "blog",
                 label: "Blogs",
                 items: [
                   "Serum Tips & Routines",
@@ -120,7 +125,10 @@ export default function Home() {
                 onMouseEnter={() => setOpenDropdown(menu.id)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <div className="flex items-center gap-1 hover:text-gray-600">
+                <div
+                  className="flex items-center gap-1 hover:text-gray-600"
+                  onClick={() => navigate(`/${menu.id}`)}
+                >
                   {menu.label} <ChevronDown size={16} />
                 </div>
 
